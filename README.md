@@ -23,9 +23,10 @@ Dengan menggabungkan tabel tracks dan genres menggunakan fungsi left outer join 
 <tr>
   <td>pd.read_sql_query("SELECT * FROM (SELECT GenreId, count(GenreId)as Count_GenreId FROM tracks GROUP BY GenreId) left outer join (SELECT * FROM genres) using(GenreId) ORDER BY Count_GenreId DESC limit 5",connection1) </td>
 </table>
+<br>
 ![1](https://user-images.githubusercontent.com/98092595/207577922-05cc3d96-1196-4fb5-862d-2c0e9d559d10.png)
 
-<br>
+<br><br>
 jadi, dapat dilihat untuk 5 genre paling banyak jumlah lagunya yang pertama adalah Rock, Latin,Metal,Alternative & punk, Jazz!<br>
 <br>
 <p> 2. Apa 3 jenis media yang paling banyak dipakai ? </p>
@@ -36,3 +37,12 @@ menggabungkan tabel tracks dan media_type dengan metode left outer join akan men
    </td>
   </table>
  <p> 3. 5 lagu apa yang durasinya paling lama? </p>
+ Menggunakan tabel tracks akan dapat diketahui lagu mana yang memiliki durasi yang lama, jadi: <br><br>
+ <table>
+  <tr>
+    <td> pd.read_sql_query("SELECT Name,Milliseconds FROM tracks ORDER BY Milliseconds DESC limit 5",connection1) </td>
+  </tr>
+ </table>
+<br><br>
+![2](https://user-images.githubusercontent.com/98092595/207580849-c6d28ab0-17ec-4aba-9a00-6641874b297f.png)
+<br><br>
