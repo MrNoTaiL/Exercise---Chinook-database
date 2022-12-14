@@ -23,7 +23,8 @@ Dengan menggabungkan tabel tracks dan genres menggunakan fungsi left outer join 
 <tr>
   <td>pd.read_sql_query("SELECT * FROM (SELECT GenreId, count(GenreId)as Count_GenreId FROM tracks GROUP BY GenreId) left outer join (SELECT * FROM genres) using(GenreId) ORDER BY Count_GenreId DESC limit 5",connection1) </td>
 </table>
-![1](https://user-images.githubusercontent.com/98092595/207576673-dd6292ab-6a2f-45d6-8619-eebb205786ef.jpg)
+![1](https://user-images.githubusercontent.com/98092595/207577922-05cc3d96-1196-4fb5-862d-2c0e9d559d10.png)
+
 <br>
 jadi, dapat dilihat untuk 5 genre paling banyak jumlah lagunya yang pertama adalah Rock, Latin,Metal,Alternative & punk, Jazz!<br>
 <br>
