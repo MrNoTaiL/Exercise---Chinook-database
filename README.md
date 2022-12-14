@@ -97,3 +97,23 @@ Kemudian, untuk mengetahui genre lagu yang durasinya paling sedikit:
 <br><br>
 <p> 5. Customers paling banyak membeli lagu di bulan apa? </p>
 
+Dengan memilih data yang akan kita gunakan yaitu CustomerId,InvoiceDate yang akan kita pisahkan Date and Time sehingga yang dibutuhkan hanya Date saja, dan kolom Total. sehingga syntaksnya:
+<br>
+<table>
+  <tr>
+    <td> pd.read_sql_query("SELECT CustomerId,DATE(InvoiceDate)as Date,Total FROM invoices",connection1) </td>
+  </tr>
+</table>
+<br>
+![7](https://user-images.githubusercontent.com/98092595/207592075-55b1bceb-30a0-4415-aa24-e531e966d1e7.png)
+<br><br>
+Kemudian dapat dicari dengan menggunakan syntaks customer yang paling banyak membeli lagu berada di bulan:
+<br>
+<table>
+  <tr>
+    <td> pd.read_sql_query("SELECT CustomerId,Date,max(Total)as Pembelian FROM (SELECT CustomerId,DATE(InvoiceDate)as Date,Total FROM invoices) ORDER BY Total",connection1) </td>
+  </tr>
+</table>
+<br>
+![8](https://user-images.githubusercontent.com/98092595/207592592-e4c9d47e-38d2-4a00-bb8a-8ac11b98cf05.png)
+<br><br>
