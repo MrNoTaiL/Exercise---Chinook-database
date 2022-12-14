@@ -117,3 +117,6 @@ Kemudian dapat dicari dengan menggunakan syntaks customer yang paling banyak mem
 <br>
 ![8](https://user-images.githubusercontent.com/98092595/207592592-e4c9d47e-38d2-4a00-bb8a-8ac11b98cf05.png)
 <br><br>
+
+## Chapter 2 : Python
+Dapat langsung di coba dengan file tugas_akhir.ipynb
