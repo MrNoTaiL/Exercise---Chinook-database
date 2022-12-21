@@ -25,10 +25,9 @@ Dengan menggabungkan tabel tracks dan genres menggunakan fungsi left outer join 
 <tr>
   <td>pd.read_sql_query("SELECT * FROM (SELECT GenreId, count(GenreId)as Count_GenreId FROM tracks GROUP BY GenreId) left outer join (SELECT * FROM genres) using(GenreId) ORDER BY Count_GenreId DESC limit 5",connection1) </td>
 </table>
-<br>
-![1](https://user-images.githubusercontent.com/98092595/207577922-05cc3d96-1196-4fb5-862d-2c0e9d559d10.png)
 
-<br><br>
+<img src="https://github.com/MrNoTaiL/Exercise---Chinook-database/blob/Initial-commit/images/1.png?raw=true"></img>
+
 jadi, dapat dilihat untuk 5 genre paling banyak jumlah lagunya yang pertama adalah Rock, Latin,Metal,Alternative & punk, Jazz!<br>
 <br>
 
@@ -47,9 +46,9 @@ menggabungkan tabel tracks dan media_type dengan metode left outer join akan men
     <td> pd.read_sql_query("SELECT Name,Milliseconds FROM tracks ORDER BY Milliseconds DESC limit 5",connection1) </td>
   </tr>
  </table>
-<br>
-![2](https://user-images.githubusercontent.com/98092595/207580849-c6d28ab0-17ec-4aba-9a00-6641874b297f.png)
-<br><br>
+
+<img src="https://github.com/MrNoTaiL/Exercise---Chinook-database/blob/Initial-commit/images/2.png?raw=true"></img>
+
 
 <p> 4. Rata-rata setiap genre itu durasi lagunya berapa lama? genre mana yang durasinya paling lama dan durasi yang paling sedikit?</p>
 
@@ -62,9 +61,9 @@ Dengan menggunakan syntaks berikut, dapat merubah format dari waktu:
     <td> pd.read_sql_query("SELECT GenreId,Milliseconds,time(Milliseconds,'unixepoch')as durasi FROM tracks",connection1) </td>
   </tr>
 </table>
-<br>
-![3](https://user-images.githubusercontent.com/98092595/207586481-d736be12-63dc-48da-a9fc-2da2b00c5923.png)
-<br><br>
+
+<img src="https://github.com/MrNoTaiL/Exercise---Chinook-database/blob/Initial-commit/images/3.png?raw=true"></img>
+
 Langkah selanjutnya melihat rata-rata durasi genre yang di kombinasikan tabel tracks dengan genres:
 <br><br>
 <table>
@@ -72,9 +71,9 @@ Langkah selanjutnya melihat rata-rata durasi genre yang di kombinasikan tabel tr
     <td> pd.read_sql_query("SELECT * FROM(SELECT GenreId,durasi,ROUND(new_durasi)as new_durasi FROM(SELECT GenreId,durasi,AVG(durasi) as new_durasi FROM (SELECT GenreId,Milliseconds,time(Milliseconds,'unixepoch')as durasi FROM tracks) GROUP BY GenreId))left outer join (SELECT * FROM genres) using(GenreId)",connection1) </td>
   </tr>
 </table>
-<br>
-![4](https://user-images.githubusercontent.com/98092595/207590444-d9a7ae49-f596-41d1-99a7-cb8564ac9e72.png)
-<br><br>
+
+<img src="https://github.com/MrNoTaiL/Exercise---Chinook-database/blob/Initial-commit/images/4.png?raw=true"></img>
+
 Untuk mengetahui Genre lagu yang durasinya paling lama dapat menggunakan syntaks berikut:
 <br><br>
 <table>
@@ -82,9 +81,9 @@ Untuk mengetahui Genre lagu yang durasinya paling lama dapat menggunakan syntaks
     <td> pd.read_sql_query("SELECT GenreId,Name,max(durasi) FROM(SELECT * FROM(SELECT GenreId,durasi,ROUND(new_durasi)as new_durasi FROM(SELECT GenreId,durasi,AVG(durasi) as new_durasi FROM (SELECT GenreId,Milliseconds,time(Milliseconds,'unixepoch')as durasi FROM tracks) GROUP BY GenreId))left outer join (SELECT * FROM genres) using(GenreId))",connection1) </td>
   </tr>
 </table>
-<br>
-![5](https://user-images.githubusercontent.com/98092595/207590861-47e78ec3-3678-4bc5-8350-e4a6ee1adab0.png)
-<br><br>
+
+<img src="https://github.com/MrNoTaiL/Exercise---Chinook-database/blob/Initial-commit/images/5.png?raw=true"></img>
+
 Kemudian, untuk mengetahui genre lagu yang durasinya paling sedikit:
 <br><br>
 <table>
@@ -92,9 +91,9 @@ Kemudian, untuk mengetahui genre lagu yang durasinya paling sedikit:
     <td> pd.read_sql_query("SELECT GenreId,Name,min(durasi) FROM(SELECT * FROM(SELECT GenreId,durasi,ROUND(new_durasi)as new_durasi FROM(SELECT GenreId,durasi,AVG(durasi) as new_durasi FROM (SELECT GenreId,Milliseconds,time(Milliseconds,'unixepoch')as durasi FROM tracks) GROUP BY GenreId))left outer join (SELECT * FROM genres) using(GenreId))",connection1) </td>
   </tr>
 </table>
-<br>
-![6](https://user-images.githubusercontent.com/98092595/207590906-47178704-47c9-4737-a3b4-f2590130a5ca.png)
-<br><br>
+
+<img src="https://github.com/MrNoTaiL/Exercise---Chinook-database/blob/Initial-commit/images/6.png?raw=true"></img>
+
 <p> 5. Customers paling banyak membeli lagu di bulan apa? </p>
 
 Dengan memilih data yang akan kita gunakan yaitu CustomerId,InvoiceDate yang akan kita pisahkan Date and Time sehingga yang dibutuhkan hanya Date saja, dan kolom Total. sehingga syntaksnya:
@@ -104,9 +103,9 @@ Dengan memilih data yang akan kita gunakan yaitu CustomerId,InvoiceDate yang aka
     <td> pd.read_sql_query("SELECT CustomerId,DATE(InvoiceDate)as Date,Total FROM invoices",connection1) </td>
   </tr>
 </table>
-<br>
-![7](https://user-images.githubusercontent.com/98092595/207592075-55b1bceb-30a0-4415-aa24-e531e966d1e7.png)
-<br><br>
+
+<img src="https://github.com/MrNoTaiL/Exercise---Chinook-database/blob/Initial-commit/images/7.png?raw=true"></img>
+
 Kemudian dapat dicari dengan menggunakan syntaks customer yang paling banyak membeli lagu berada di bulan:
 <br>
 <table>
@@ -114,9 +113,9 @@ Kemudian dapat dicari dengan menggunakan syntaks customer yang paling banyak mem
     <td> pd.read_sql_query("SELECT CustomerId,Date,max(Total)as Pembelian FROM (SELECT CustomerId,DATE(InvoiceDate)as Date,Total FROM invoices) ORDER BY Total",connection1) </td>
   </tr>
 </table>
-<br>
-![8](https://user-images.githubusercontent.com/98092595/207592592-e4c9d47e-38d2-4a00-bb8a-8ac11b98cf05.png)
-<br><br>
+
+<img src="https://github.com/MrNoTaiL/Exercise---Chinook-database/blob/Initial-commit/images/8.png?raw=true"></img>
+
 
 ## Chapter 2 : Python
 Dapat langsung di coba dengan file tugas_akhir.ipynb
