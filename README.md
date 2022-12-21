@@ -1,4 +1,5 @@
-# Exercise---Chinook-database
+# Exercise - Chinook database
+Pada repository ini, hanya berisikan latihan saya mengenai data analisis dengan menggunakan syntaks sqlite3 dan pyhton (jupyter). Latihan ini menggunakan database chinook.db yang digunakan sebagai landasan data. Diharapkan dapat menghasilkan <i>insight</i> dari data tersebut.
 ## Chapter 1 : SQLITE
 ### Bagian 1
 Load data dengan menggunakan fungsi sqlite 
