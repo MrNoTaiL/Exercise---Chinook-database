@@ -1,5 +1,6 @@
 # Exercise - Chinook database
-Pada repository ini, hanya berisikan latihan saya mengenai data analisis dengan menggunakan syntaks sqlite3 dan pyhton (jupyter). Latihan ini menggunakan database chinook.db yang digunakan sebagai landasan data. Diharapkan dapat menghasilkan <i>insight</i> dari data tersebut.
+<p style="text-align=center">Pada repository ini, hanya berisikan latihan saya mengenai data analisis dengan menggunakan syntaks sqlite3 dan python (jupyter). Latihan ini menggunakan database chinook.db yang digunakan sebagai landasan data. Diharapkan dapat menghasilkan <i>insight</i> dari data tersebut.</p>
+
 ## Chapter 1 : SQLITE
 ### Bagian 1
 Load data dengan menggunakan fungsi sqlite 
@@ -19,9 +20,9 @@ Dapat dilihat isi dari data chinook memiliki tabel:
 ### Bagian 2
 Menjawab pertanyaan: <br>
 
-<p> 1. Apa 5 genre paling banyak jumlah lagunya </p>
+<h4> 1. Apa 5 genre paling banyak jumlah lagunya </h4>
 
-Dengan menggabungkan tabel tracks dan genres menggunakan fungsi left outer join akan menghasilkan 5 genre lagu yang paling banyak jumlahnya <br><br>
+<p style="text-align=center">Dengan menggabungkan tabel tracks dan genres menggunakan fungsi left outer join akan menghasilkan 5 genre lagu yang paling banyak jumlahnya </p>
 <table>
 <tr>
   <td>pd.read_sql_query("SELECT * FROM (SELECT GenreId, count(GenreId)as Count_GenreId FROM tracks GROUP BY GenreId) left outer join (SELECT * FROM genres) using(GenreId) ORDER BY Count_GenreId DESC limit 5",connection1) </td>
@@ -32,16 +33,16 @@ Dengan menggabungkan tabel tracks dan genres menggunakan fungsi left outer join 
 jadi, dapat dilihat untuk 5 genre paling banyak jumlah lagunya yang pertama adalah Rock, Latin,Metal,Alternative & punk, Jazz!<br>
 <br>
 
-<p> 2. Apa 3 jenis media yang paling banyak dipakai ? </p>
+<h4> 2. Apa 3 jenis media yang paling banyak dipakai ? </h4>
 
-menggabungkan tabel tracks dan media_type dengan metode left outer join akan menghasilkan jenis-jenis media paling banyak di pakai <br><br>
+<p style="text-align=center">menggabungkan tabel tracks dan media_type dengan metode left outer join akan menghasilkan jenis-jenis media paling banyak di pakai </p>
 <table>
   <tr>
   <td> pd.read_sql_query("SELECT * FROM (SELECT MediaTypeId,count(MediaTypeId)as Count_MediaTypeId FROM tracks GROUP BY MediaTypeId) left outer join (SELECT * FROM media_types) using (MediaTypeId) ORDER BY Count_MediaTypeId DESC limit 3",connection1) 
    </td>
   </table>
- <p> 3. 5 lagu apa yang durasinya paling lama? </p>
- Menggunakan tabel tracks akan dapat diketahui lagu mana yang memiliki durasi yang lama, jadi: <br><br>
+ <h4> 3. 5 lagu apa yang durasinya paling lama? </h4>
+ <p style="text-align=center">Menggunakan tabel tracks akan dapat diketahui lagu mana yang memiliki durasi yang lama, jadi: </p>
  <table>
   <tr>
     <td> pd.read_sql_query("SELECT Name,Milliseconds FROM tracks ORDER BY Milliseconds DESC limit 5",connection1) </td>
@@ -51,10 +52,10 @@ menggabungkan tabel tracks dan media_type dengan metode left outer join akan men
 <img src="https://github.com/MrNoTaiL/Exercise---Chinook-database/blob/Initial-commit/images/2.png?raw=true"></img>
 
 
-<p> 4. Rata-rata setiap genre itu durasi lagunya berapa lama? genre mana yang durasinya paling lama dan durasi yang paling sedikit?</p>
+<h4> 4. Rata-rata setiap genre itu durasi lagunya berapa lama? genre mana yang durasinya paling lama dan durasi yang paling sedikit?</h4>
 
-Untuk mengetahui durasi lagu, dapat menggunakan tabel tracks dan genres dengan menggunakan operator left outer join.akan tetapi kita harus merubah waktu yang ada di kolom Milliseconds menjadi waktu yang kita ketahui yaitu HH:MM:SS
-<br>
+<p style="text-align=center">Untuk mengetahui durasi lagu, dapat menggunakan tabel tracks dan genres dengan menggunakan operator left outer join.akan tetapi kita harus merubah waktu yang ada di kolom Milliseconds menjadi waktu yang kita ketahui yaitu HH:MM:SS.</p>
+
 Dengan menggunakan syntaks berikut, dapat merubah format dari waktu:
 <br><br>
 <table>
