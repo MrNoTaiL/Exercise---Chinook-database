@@ -1,5 +1,5 @@
 # Exercise - Chinook database
-<p style="text-align=center">Pada repository ini, hanya berisikan latihan saya mengenai data analisis dengan menggunakan syntaks sqlite3 dan python (jupyter). Latihan ini menggunakan database chinook.db yang digunakan sebagai landasan data. Diharapkan dapat menghasilkan <i>insight</i> dari data tersebut.</p>
+<p style="text-align=center">Pada repository ini, hanya berisikan latihan saya mengenai data analisis dengan menggunakan syntaks sqlite3 dan python (jupyter). Latihan ini menggunakan database chinook.db yang digunakan sebagai landasan data. Diharapkan dapat menghasilkan <i>insight</i> dari data tersebut. Tujuan dari project ini adalah untuk memenuhi tugas mini course dari Kerier.mu.</p>
 
 ## Chapter 1 : SQLITE
 ### Bagian 1
